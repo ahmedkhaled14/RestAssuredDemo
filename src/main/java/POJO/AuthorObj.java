@@ -7,11 +7,11 @@ public class AuthorObj {
     private String firstName;
     private String lastName;
 
-    public float getId() {
+    public int getId() {
         return id;
     }
 
-    public float getIdBook() {
+    public int getIdBook() {
         return idBook;
     }
 

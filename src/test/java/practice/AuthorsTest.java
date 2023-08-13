@@ -2,6 +2,7 @@ package practice;
 
 import POJO.AuthorObj;
 import io.restassured.response.Response;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import services.Authors;
 
@@ -14,10 +15,12 @@ public class AuthorsTest {
         response.then().log().body();
 
         AuthorObj[] data = response.body().as(AuthorObj[].class);
-        String length = String.valueOf(data.length);
-        System.out.println(" last author id = " +length);
 
-        author.getLastAuthor(length)
+        String lastAuthorId = String.valueOf(data[data.length-1].getId());
+
+        System.out.println(" get last author id = " +lastAuthorId);
+
+        author.getLastAuthor(lastAuthorId)
                 .then()
                 .log()
                 .body();
